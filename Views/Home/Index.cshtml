@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@if (Session["loginID"] != null)
+{
+    <div class="jumbotron">
+        <h1>Welcome @Session["Name"].ToString() </h1>
+    </div>
+    <div class="jumbotron">
+        <h1>Party Management Application</h1>
+        <p class="lead">A party management system for Sydney hotel that allows party organizers to create parties.</p>
+    </div>
+    <!--Page redirect-->
+
+<div class="row">
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Attendees", "Index", "Attendees")</li>
+        <li>@Html.ActionLink("Event_details", "Index", "Event_details")</li>
+        <li>@Html.ActionLink("Organisers", "Index", "Organisers")</li>
+    </ul>
+   
+ </div>
+
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2> Parties:</h2>
+            <p>
+                These represent the various types of parties that can be organized by the hotel.
+                Each party would have certain details associated with it, such as the type of party, the date and time, the location, and any other relevant information.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Organizers:</h2>
+            <p>
+                These are the individuals or groups responsible for organizing the parties. They would have their own set of details, such as their name, contact information, and any other relevant information.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2> Attendees:</h2>
+            <p>These are the individuals who are attending the parties. They would also have their own set of details, such as their name, contact information, and any other relevant information.</p>
+        </div>
+    </div>
+}
+else
+{
+    <h1> Please Login first to view Party Mangement Views</h1>
+    <div class="row">
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Login", "Login", "Home")</li>
+        
+    </ul>
+</div>
+}
